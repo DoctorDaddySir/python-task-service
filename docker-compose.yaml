@@ -1,0 +1,8 @@
+services:
+  task-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SERVICE_NAME: "Task Service - Compose"
+      ENVIRONMENT: "docker-compose"

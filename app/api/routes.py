@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from app.services.task_service import TaskService
+from app.config import settings
 
 router = APIRouter()
 service = TaskService()
@@ -7,7 +8,10 @@ service = TaskService()
 
 @router.get("/")
 def root():
-    return {"message": "Task Service is running"}
+    return {
+        "message": f"{settings.service_name} is running",
+        "environment": settings.environment
+    }
 
 
 @router.post("/tasks")
